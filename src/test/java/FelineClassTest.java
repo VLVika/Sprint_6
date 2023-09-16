@@ -1,41 +1,31 @@
-import com.example.Animal;
+
 import com.example.Feline;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
-
-import java.util.Arrays;
 import java.util.List;
 
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+
 
 @RunWith(MockitoJUnitRunner.class)
-public class FelineTests {
-    Feline feline = new Feline();
-    String animalKind = "Хищник";
-
-
-  /*  @Spy
-    Animal animal = new Animal();
-
-    @Test
-    public void felineEatMeatVerifyAnimalGetFood() throws Exception {
-        Feline feline = new Feline();
-        feline.eatMeat();
-        verify(animal, Mockito.times(1)).getFood("Хищник");
-
-    }*/
-//       when(animal.getFood(animalKind)).thenReturn(Arrays.asList("Животные", "Птицы", "Рыба"));
-
+public class FelineClassTest {
 
 
     @Spy
     Feline felineSpy;
+
+    @Test
+    public void felineEatMeatReturnText() throws Exception {
+        List<String> expected = List.of("Животные", "Птицы", "Рыба");
+        felineSpy.eatMeat();
+        Assert.assertEquals("Ошибка!! Ожидалось следующее сообщение " + expected, expected, felineSpy.eatMeat());
+
+    }
+
 
     @Test
     public void getKittensCount5ReturnTheSame () throws Exception {
@@ -60,14 +50,7 @@ public class FelineTests {
     @Test
     public void getFamilyWasReturnTheText(){
         String expected = "Кошачьи";
-        Assert.assertEquals("Ожидаели текст: "+ expected, expected, feline.getFamily());
+        Assert.assertEquals("Ожидаели текст: "+ expected, expected, felineSpy.getFamily());
     }
 
-
-
-
-
-
-    }
-
-
+}
