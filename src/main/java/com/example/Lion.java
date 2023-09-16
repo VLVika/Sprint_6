@@ -17,9 +17,12 @@ public class Lion {
         }
     }
 
-    public Lion(Feline feline, boolean hasMane){
-        this.feline=feline;
+    public Lion(boolean hasMane){
         this.hasMane = hasMane;
+    }
+
+    public Lion(Feline feline){
+        this.feline=feline;
     }
 
 
