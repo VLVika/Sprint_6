@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.Arrays;
@@ -31,7 +32,9 @@ public class CatTests {
         Cat cat = new Cat(feline);
     when(feline.eatMeat()).thenReturn(Arrays.asList("Кар, Кар, Кар"));
     cat.getFood();
-    verify(feline).eatMeat();
+    verify(feline, Mockito.times(1)).eatMeat();
+
+
 
 
 

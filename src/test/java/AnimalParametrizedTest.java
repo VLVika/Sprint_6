@@ -24,6 +24,7 @@ public class AnimalParametrizedTest {
                 {"Хищник", List.of("Животные", "Птицы", "Рыба")},
         };
     }
+
     @Test
     public void animalGetFoodPositiveParametrizedTest() throws Exception {
         Animal animal = new Animal();
